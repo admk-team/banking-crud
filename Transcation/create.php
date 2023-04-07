@@ -13,11 +13,11 @@
     $item->transcation_id = $data->transcation_id;
     $item->user_id = $data->user_id;
     if($item->createUserTranscation()){
-        http_response_code(201); //
+        // http_response_code(201); //
         echo 'User Transcation successfully.';
    
     } else{
-        http_response_code(500); //
+        // http_response_code(500); //
         echo 'User  Transcation could not be successfull.';
     }
 ?>

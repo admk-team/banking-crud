@@ -26,7 +26,7 @@
     $item->balance = $data->balance;
     
     if($item->updateUserAccount()){
-        http_response_code(400); 
+        // http_response_code(400); 
         echo json_encode("user Account  data updated.");
     } else{
         http_response_code(500);
