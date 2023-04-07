@@ -1,395 +1,121 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>User Details</title>
-    <style>
-      /* Reset default margin and padding for all elements */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      /* Set a background color for the page */
-      body {
-        background-color: #f5f5f5;
-        font-family: Arial, sans-serif;
-      }
 
-      /* Style the header */
-      header {
-        background-color: #333;
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-      }
+<head>
+  <meta charset="UTF-8">
+  <title>User Details</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-      /* Style the navigation links */
-      nav ul {
-        display: flex;
-        list-style: none;
-      }
-
-      nav ul li {
-        margin-left: 10px;
-      }
-
-      nav ul li:first-child {
-        margin-left: 0;
-      }
-
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        padding: 10px;
-      }
-
-      nav a:hover {
-        background-color: #666;
-      }
-
-      /* Style the main content area */
-      main {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-      }
-
-      /* Style the table headings */
-      table th {
-        text-align: left;
-        padding: 10px;
-        background-color: #333;
-        color: #fff;
-      }
-
-      /* Style the table cells */
-      table td {
-        padding: 10px;
-        border-bottom: 1px solid #ccc;
-      }
-
-      /* Style alternate rows */
-      table tbody tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-
-      /* Style the section headings */
-      h2 {
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-
-      /* Style the form */
-      form {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-      }
-
-      form label {
-        margin-bottom: 5px;
-      }
-
-      form input {
-        padding: 5px;
-        margin-bottom: 10px;
-        border-radius: 3px;
-        border: 1px solid #ccc;
-        font-size: 1em;
-      }
-
-      form button {
-        padding: 10px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        font-size: 1em;
-        cursor: pointer;
-      }
-
-      form button:hover {
-        background-color: #666;
-      }
-
-      /* Style the success and error messages */
-      .success-message, .error-message {
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 3px;
-        font-size: 1em;
-        font-weight: bold;
-      }
-
-      .success-message {
-        background-color: #2ecc71;
-        color: #fff;
-      }
-
-      .error-message {
-        background-color: #e74c3c;
-        color: #fff;
-      }
-      .table-responsive{
-        max-width: 800px;
-        overflow: scroll;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Account Details</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html">Users</a></li>
-          <li><a href="account.html">Account</a></li>
-          <li><a href="transcation.html">Transactions</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <h2>User Account Records</h2>
-      <div class="table-responsive">
-        <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>User Id</th>
-                <th>Account no </th>
-                <th>Bank Name</th>
-                <th>Branch name</th>
-                <th>branch code</th>
-                <th>account type</th>
-                <th>balance</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Display user records from API using JavaScript -->
-            </tbody>
-          </table>
-      </div>
-      
-
-      <h2>Add User Account</h2>
-      <form id="add-user-account-form">
-        <label for="name">User Id:</label>
-        <input type="text" id="user-id" name="user-id" required>
-
-        <label for="name">Account No:</label>
-        <input type="text" id="account-no" name="account-no" required>
-
-        <label for="text">Bank Name:</label>
-        <input type="text" id="bank-name" name="bank-name" required>
-
-        <label for="text">Branch Name:</label>
-        <input type="text" id="branch-name" name="branch-name" >
-        
-        <label for="text">Branch Code:</label>
-        <input type="text" id="branch-code" name="branch-code" >
-                
-        <label for="text">Account Type:</label>
-        <input type="text" id="account-type" name="account-type" >
-                
-        <label for="text">Balance:</label>
-        <input type="text" id="balance" name="balance" >
-
-        <button type="submit">Add account</button>
-      </form>
-
-      <h2>Update User Account</h2>
-      <form id="update-user-account-form">
-        
-        <label for="name">ID:</label>
-        <input type="text" id="update-id" name="update-id" required>
-
-        <label for="name">User Id:</label>
-        <input type="text" id="update-user-id" name="update-user-id" required>
-
-
-        <label for="name">Account No:</label>
-        <input type="text" id="update-account-no" name="update-account-no" required>
-
-        <label for="text">Bank Name:</label>
-        <input type="text" id="update-bank-name" name="bupdate-ank-name" required>
-
-        <label for="text">Branch Name:</label>
-        <input type="text" id="update-branch-name" name=update-branch-name" >
-        
-        <label for="text">Branch Code:</label>
-        <input type="text" id="update-branch-code" name=update-branch-code" >
-                
-        <label for="text">Account Type:</label>
-        <input type="text" id="update-account-type" name="update-account-type" >
-                
-        <label for="text">Balance:</label>
-        <input type="text" id="update-balance" name="update-balance" >
-
-        <button type="submit">Update User Account</button>
-      </form>
-
-      <h2>Delete user Account </h2>
-      <form id="delete-user-account-form">
-        <label for="delete-id">ID:</label>
-        <input type="text" id="delete-id" name="id" required>
-
-        <button type="submit">Delete User Account</button>
-      </form>
-
-      <!-- Display success and error messages using JavaScript -->
-      <div id="messages"></div>
-    </main>
-
-    <!-- Load JavaScript library to interact with API -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <script>
-      const BASE_URL = "http://localhost:8080/";
-
-      // Display user records when the page loads
-      window.onload = () => {
-        getUsers();
-      };
-
-      // Function to get user records from API
-      function getUsers() {
-        axios.get(`${BASE_URL}account/read.php`)
-          .then(response => {
-            const users = response.data.body;
-            console.log(users);
-            const tbody = document.querySelector("table tbody");
-            tbody.innerHTML = "";
-            for (let user of users) {
-              tbody.innerHTML += `
-                <tr>
-                  <td>${user.id}</td>
-                  <td>${user.user_id}</td>
-                  <td>${user.account_no}</td>
-                  <td>${user.bank_name}</td>
-                  <td>${user.branch_name}</td>
-                  <td>${user.branch_code}</td>
-                  <td>${user.account_type}</td>
-                  <td>${user.balance}</td>
-                </tr>`;
-            }
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }
-
-      // Function to add a new user to the API
-      document.querySelector("#add-user-account-form").addEventListener("submit", event => {
-        event.preventDefault();
-
-        const user_id = document.querySelector("#user-id").value;
-        const account_no = document.querySelector("#account-no").value;
-        const bank_name = document.querySelector("#bank-name").value;
-        const branch_name = document.querySelector("#branch-name").value;
-        const branch_code = document.querySelector("#branch-code").value;
-        const account_type = document.querySelector("#account-type").value;
-        const balance = document.querySelector("#balance").value;
-
-        axios.post(`${BASE_URL}/account/create.php`, { user_id ,account_no , bank_name , branch_name , branch_code , account_type , balance})
-          .then(response =>{
-        // Display success message and refresh user records
-        document.querySelector("#messages").innerHTML = "User Account  added successfully";
-        getUsers();
-      })
-      .catch(error => {
-        // Display error message
-        document.querySelector("#messages").innerHTML = "Error adding user account";
-        console.error(error);
-      });
-  });
-
-//   // Function to pre-fill the update form with user data
-//   function editUser(id) {
-//     axios.get(`${BASE_URL}/user/update.php/${id}`)
-//       .then(response => {
-//         const user = response.data;
-//         document.querySelector("#update-id").value = user.id;
-//         document.querySelector("#update-name").value = user.name;
-//         document.querySelector("#update-email").value = user.email;
-//         document.querySelector("#update-phone").value = user.phone;
-//       })
-//       .catch(error => {
-//         console.error(error);
-//       });
-//   }
-
-  // Function to update an existing user in the API
-  document.querySelector("#update-user-account-form").addEventListener("submit", event => {
-    event.preventDefault();
-
-    const id = document.querySelector("#update-id").value;
-    const user_id = document.querySelector("#update-user-id").value;
+<body>
+  <header>
+    <h1>Account Details</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Users</a></li>
+        <li><a href="account.html">Account</a></li>
+        <li><a href="transcation.html">Transactions</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>User Account Records</h2>
     
-    const account_no = document.querySelector("#update-account-no").value;
-        const bank_name = document.querySelector("#update-bank-name").value;
-        const branch_name = document.querySelector("#update-branch-name").value;
-        const branch_code = document.querySelector("#update-branch-code").value;
-        const account_type = document.querySelector("#update-account-type").value;
-        const balance = document.querySelector("#update-balance").value;
-
-    axios.put(`${BASE_URL}/account/update.php`, {id , user_id ,  account_no , bank_name , branch_name , branch_code , account_type , balance })
-      .then(response => {
-        // Display success message and refresh user records
-        document.querySelector("#messages").innerHTML = "User Account  updated successfully";
-        getUsers();
-      })
-      .catch(error => {
-        // Display error message
-        document.querySelector("#messages").innerHTML = "Error updating user account ";
-        console.error(error);
-      });
-  });
-
-  
-    // Function to update an existing user in the API
-    document.querySelector("#delete-user-account-form").addEventListener("submit", event => {
-    event.preventDefault();
-
-    const id = document.querySelector("#delete-id").value;
-
-    axios.post(`${BASE_URL}/account/delete.php`, { id })
-      .then(response => {
-        // Display success message and refresh user records
-        document.querySelector("#messages").innerHTML = "User Account Deleted successfully";
-        getUsers();
-      })
-      .catch(error => {
-        // Display error message
-        document.querySelector("#messages").innerHTML = "Error deleting user account";
-        console.error(error);
-      });
-  });
+    <!-- Display success and error messages using JavaScript -->
+    <div id="messages"></div>
+    
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User Id</th>
+            <th>Account no </th>
+            <th>Bank Name</th>
+            <th>Branch name</th>
+            <th>branch code</th>
+            <th>account type</th>
+            <th>balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Display user records from API using JavaScript -->
+        </tbody>
+      </table>
+    </div>
 
 
+    <h2>Add User Account</h2>
+    <form id="add-user-account-form">
+      <label for="name">User Id:</label>
+      <input type="text" id="user-id" name="user-id" required>
 
-//   // Function to delete a user from the API
-//   function deleteUser(id) {
-//     if (confirm("Are you sure you want to delete this user?")) {
-//       axios.delete(`${BASE_URL}/user/delete.php`)
-//         .then(response => {
-//           // Display success message and refresh user records
-//           document.querySelector("#messages").innerHTML = "User deleted successfully";
-//           getUsers();
-//         })
-//         .catch(error => {
-//           // Display error message
-//           document.querySelector("#messages").innerHTML = "Error deleting user";
-//           console.error(error);
-//         });
-//     }
-//   }
-</script>
-  </body>
+      <label for="name">Account No:</label>
+      <input type="text" id="account-no" name="account-no" required>
+
+      <label for="text">Bank Name:</label>
+      <input type="text" id="bank-name" name="bank-name" required>
+
+      <label for="text">Branch Name:</label>
+      <input type="text" id="branch-name" name="branch-name">
+
+      <label for="text">Branch Code:</label>
+      <input type="text" id="branch-code" name="branch-code">
+
+      <label for="text">Account Type:</label>
+      <input type="text" id="account-type" name="account-type">
+
+      <label for="text">Balance:</label>
+      <input type="text" id="balance" name="balance">
+
+      <button type="submit">Add account</button>
+    </form>
+
+    <h2>Update User Account</h2>
+    <form id="update-user-account-form">
+
+      <label for="name">ID:</label>
+      <input type="text" id="update-id" name="update-id" required>
+
+      <label for="name">User Id:</label>
+      <input type="text" id="update-user-id" name="update-user-id" required>
+
+
+      <label for="name">Account No:</label>
+      <input type="text" id="update-account-no" name="update-account-no" required>
+
+      <label for="text">Bank Name:</label>
+      <input type="text" id="update-bank-name" name="bupdate-ank-name" required>
+
+      <label for="text">Branch Name:</label>
+      <input type="text" id="update-branch-name" name=update-branch-name">
+
+      <label for="text">Branch Code:</label>
+      <input type="text" id="update-branch-code" name=update-branch-code">
+
+      <label for="text">Account Type:</label>
+      <input type="text" id="update-account-type" name="update-account-type">
+
+      <label for="text">Balance:</label>
+      <input type="text" id="update-balance" name="update-balance">
+
+      <button type="submit">Update User Account</button>
+    </form>
+
+    <h2>Delete user Account </h2>
+    <form id="delete-user-account-form">
+      <label for="delete-id">ID:</label>
+      <input type="text" id="delete-id" name="id" required>
+
+      <button type="submit">Delete User Account</button>
+    </form>
+
+  </main>
+
+  <!-- Load JavaScript library to interact with API -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="assets/js/account.js"></script>
+</body>
+
 </html>

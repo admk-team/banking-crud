@@ -27,7 +27,8 @@
                         ". $this->db_table ."
                     SET
                     transcation_id = :transcation_id, 
-                    user_id = :user_id";
+                    user_id = :user_id,
+                    status= :status";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
@@ -38,6 +39,7 @@
             // bind data
             $stmt->bindParam(":transcation_id", $this->transcation_id);
             $stmt->bindParam(":user_id", $this->user_id);
+            $stmt->bindParam(":status", $this->status);
             if($stmt->execute()){
                return true;
             }
