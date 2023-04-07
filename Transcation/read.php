@@ -21,7 +21,8 @@
             $e = array(
                 "id" => $id,
                 "transcation_id" => $transcation_id,
-                "user_id" => $user_id
+                "user_id" => $user_id,
+                "status" => $status
             );
             array_push($employeeArr["body"], $e);
         }

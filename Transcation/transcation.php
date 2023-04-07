@@ -16,7 +16,7 @@
         }
         // GET ALL
         public function getUserTranscation(){
-            $sqlQuery = "SELECT id, transcation_id, user_id FROM " . $this->db_table . "";
+            $sqlQuery = "SELECT id, transcation_id, user_id , status FROM " . $this->db_table . "";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             return $stmt;

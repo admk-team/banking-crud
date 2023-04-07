@@ -22,13 +22,13 @@
                 "user_id" => $user_id,
                 "account_no" => $account_no,
                 "bank_name" => $bank_name,
+                "branch_name" => $branch_name,
                 "branch_code" => $branch_code,
                 "account_type" => $account_type,
                 "balance" =>$balance
             );
             array_push($employeeArr["body"], $e);
         }
-        http_response_code(400); //
         echo json_encode($employeeArr);
     }
     else{

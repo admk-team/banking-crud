@@ -9,6 +9,7 @@
         public $user_id;
         public $account_no;
        public $bank_name;
+       public $branch_name;
        public $branch_code;
        public $account_type;
        public $balance;
@@ -19,7 +20,7 @@
         }
         // GET ALL
         public function getUserAccount(){
-            $sqlQuery = "SELECT id, user_id,account_no , bank_name , branch_code , account_type,balance FROM " . $this->db_table . "";
+            $sqlQuery = "SELECT id, user_id, account_no , bank_name , branch_name,  branch_code , account_type, balance FROM " . $this->db_table . "";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             return $stmt;
@@ -32,6 +33,7 @@
                         user_id= :user_id, 
                         account_no= :account_no, 
                         bank_name = :bank_name,
+                        branch_name = :branch_name,
                         branch_code = :branch_code,
                         account_type = :account_type,
                         balance = :balance";
@@ -42,6 +44,7 @@
             $this->user_id=htmlspecialchars(strip_tags($this->user_id));
             $this->account_no=htmlspecialchars(strip_tags($this->account_no));
             $this->bank_name=htmlspecialchars(strip_tags($this->bank_name));
+            $this->branch_name=htmlspecialchars(strip_tags($this->branch_name));
             $this->branch_code=htmlspecialchars(strip_tags($this->branch_code));
             $this->account_type=htmlspecialchars(strip_tags($this->account_type));
             $this->balance=htmlspecialchars(strip_tags($this->balance));
@@ -51,6 +54,7 @@
             $stmt->bindParam(":user_id", $this->user_id);
             $stmt->bindParam(":account_no", $this->account_no);
             $stmt->bindParam(":bank_name", $this->bank_name);
+            $stmt->bindParam(":branch_name", $this->branch_name);
             $stmt->bindParam(":branch_code", $this->branch_code);
             $stmt->bindParam(":account_type", $this->account_type);
             $stmt->bindParam(":balance", $this->balance);
@@ -61,7 +65,7 @@
         }
         // READ single
         public function getSingleUserAccount(){
-            $sqlQuery = "SELECT id, user_id,account_no , bank_name , branch_code , account_type,balance  FROM ". $this->db_table ." WHERE id = ?  LIMIT 0,1";
+            $sqlQuery = "SELECT id, user_id,account_no , bank_name , branch_name ,  branch_code , account_type,balance  FROM ". $this->db_table ." WHERE id = ?  LIMIT 0,1";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->bindParam(1, $this->id);
             $stmt->execute();
@@ -70,18 +74,20 @@
             $this->user_id = $dataRow['user_id'];
             $this->account_no = $dataRow['account_no'];
             $this->bank_name = $dataRow['bank_name'];
+            $this->branch_name = $dataRow['branch_name'];
             $this->branch_code = $dataRow['branch_code'];
             $this->account_type = $dataRow['account_type'];
             $this->balance = $dataRow['balance'];
         }        
         // UPDATE
         public function updateUserAccount(){
-            $sqlQuery = "UPDATE ".$this->db_table ." SET user_id = :user_id, account_no = :account_no ,bank_name = :bank_name , branch_code =:branch_code  , account_type=:account_type , balance=:balance WHERE id = :id";
+            $sqlQuery = "UPDATE ".$this->db_table ." SET user_id = :user_id, account_no = :account_no ,bank_name = :bank_name , branch_name:branch_name ,  branch_code =:branch_code  , account_type=:account_type , balance=:balance WHERE id = :id";
         
             $stmt = $this->conn->prepare($sqlQuery);
             $this->user_id=htmlspecialchars(strip_tags($this->user_id));
             $this->account_no=htmlspecialchars(strip_tags($this->account_no));
             $this->bank_name=htmlspecialchars(strip_tags($this->bank_name));
+            $this->branch_name=htmlspecialchars(strip_tags($this->branch_name));
             $this->branch_code=htmlspecialchars(strip_tags($this->branch_code));
             $this->account_type=htmlspecialchars(strip_tags($this->account_type));
             $this->balance=htmlspecialchars(strip_tags($this->balance));
@@ -91,6 +97,7 @@
             $stmt->bindParam(":user_id", $this->user_id);
             $stmt->bindParam(":account_no", $this->account_no);
             $stmt->bindParam(":bank_name", $this->bank_name);
+            $stmt->bindParam(":branch_name", $this->branch_name);
             $stmt->bindParam(":branch_code", $this->branch_code);
             $stmt->bindParam(":account_type", $this->account_type);
             $stmt->bindParam(":balance", $this->balance);

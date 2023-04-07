@@ -20,6 +20,7 @@
     $item->user_id = $data->user_id;
     $item->account_no = $data->account_no;
     $item->bank_name = $data->bank_name;
+    $item->branch_name = $data->branch_name;
     $item->branch_code = $data->branch_code;
     $item->account_type  = $data->account_type;
     $item->balance = $data->balance;
