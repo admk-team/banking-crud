@@ -14,8 +14,10 @@
     $item->email = $data->email;
     $item->phone = $data->phone;
     if($item->createUser()){
+        http_response_code(201); // Set HTTP response code to 201 (Created)
         echo 'User created successfully.';
     } else{
+        http_response_code(500); 
         echo 'User could not be created.';
     }
 ?>

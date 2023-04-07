@@ -3,7 +3,7 @@
         // Connection
         private $conn;
         // Table
-        private $db_table = "user";
+        private $db_table = "users";
         // Columns
         public $id;
         public $name;
@@ -89,7 +89,7 @@
             return false;
         }
         // DELETE
-        function deleteEmployee(){
+        function deleteUser(){
             $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id = ?";
             $stmt = $this->conn->prepare($sqlQuery);
         

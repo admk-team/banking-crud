@@ -22,8 +22,10 @@
     $item->phone = $data->phone;
     
     if($item->updateUser()){
+        http_response_code(200);
         echo json_encode("user data updated.");
     } else{
+        http_response_code(500);
         echo json_encode("Data could not be updated");
     }
 ?>

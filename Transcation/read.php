@@ -3,11 +3,11 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     include_once '../database.php';
-    include_once 'user.php';
+    include_once 'transcation.php';
     $database = new Database();
     $db = $database->getConnection();
-    $items = new User($db);
-    $stmt = $items->getUser();
+    $items = new Transcation($db);
+    $stmt = $items->getUserTranscation();
     $itemCount = $stmt->rowCount();
 
     echo json_encode($itemCount);
@@ -20,10 +20,8 @@
             extract($row);
             $e = array(
                 "id" => $id,
-                "name" => $name,
-                "email" => $email,
-                "phone" => $phone,
-               
+                "transcation_id" => $transcation_id,
+                "user_id" => $user_id
             );
             array_push($employeeArr["body"], $e);
         }

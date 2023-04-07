@@ -6,22 +6,25 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
     
     include_once '../database.php';
-    include_once 'user.php';
+    include_once 'transcation.php';
     
     $database = new Database();
     $db = $database->getConnection();
     
-    $item = new User($db);
+    $item = new Transcation($db);
     
     $data = json_decode(file_get_contents("php://input"));
-    
     $item->id = $data->id;
     
-    if($item->deleteUser()){
-        http_response_code(204);
-        echo json_encode("User deleted.");
+    // employee values
+    $item->transcation_id = $data->transcation_id;
+    $item->user_id = $data->user_id;
+    
+    if($item->updateUserTranscation()){
+        http_response_code(200);
+        echo json_encode("user Transcation updated.");
     } else{
         http_response_code(500);
-        echo json_encode("Data could not be deleted");
+        echo json_encode("transcation could not be updated");
     }
 ?>

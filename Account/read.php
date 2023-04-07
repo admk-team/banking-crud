@@ -3,11 +3,11 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     include_once '../database.php';
-    include_once 'user.php';
+    include_once 'account.php';
     $database = new Database();
     $db = $database->getConnection();
-    $items = new User($db);
-    $stmt = $items->getUser();
+    $items = new Account($db);
+    $stmt = $items->getUserAccount();
     $itemCount = $stmt->rowCount();
 
     echo json_encode($itemCount);
@@ -20,14 +20,16 @@
             extract($row);
             $e = array(
                 "id" => $id,
-                "name" => $name,
-                "email" => $email,
-                "phone" => $phone,
-               
+                "user_id" => $user_id,
+                "account_no" => $account_no,
+                "bank_name" => $bank_name,
+                "branch_code" => $branch_code,
+                "account_type" => $account_type,
+                "balance" =>$balance
             );
             array_push($employeeArr["body"], $e);
         }
-        http_response_code(200);
+        http_response_code(400); //
         echo json_encode($employeeArr);
     }
     else{
